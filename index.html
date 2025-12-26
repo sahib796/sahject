@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rangrez cars Mobile Shop</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <style>
+    :root {
+      --accent: #ff2e2e;
+      --accent2: #ff4d4d;
+      --bg-dark: #080808;
+      --card: #111111;
+    }
+
+    html,body {
+      margin: 0;
+      padding: 0;
+      overflow-x:hidden ;
+      background: var(--bg-dark);
+      color: #f6f6f6;
+      font-family: system-ui;
+      font-size: 18px;
+    }
+    *{box-sizing: border-box;}
+    a {
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(0, 0, 0, 0.55) !important;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    .navbar-brand {
+      color: var(--accent2);
+      font-weight: 900;
+      font-size: 1.8rem;
+      text-shadow: 0 0 15px var(--accent2);
+    }
+
+    /* SECTIONS */
+    section {
+      min-height: 100vh;
+      padding: 90px 0;
+    }
+
+    /* HOME */
+    #home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('imag/home2.jpg') no-repeat center/cover;
+      position: relative;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    #home .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 6vw, 70px);
+      font-weight: 900;
+      color: var(--accent2);
+      text-shadow: 0 0 25px var(--accent);
+    }
+
+    .hero-sub {
+      color: #fff;
+      opacity: .9;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-top: 12px;
+    }
+
+    /* ABOUT */
+    #about .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+    }
+
+    #about .img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+    }
+
+    #about h3 {
+      color: var(--accent2);
+      font-weight: 800;
+    }
+
+    /* SERVICES */
+    .service-card {
+      background: linear-gradient(180deg, #141414, #1a1a1a);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      padding: 22px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 30, 30, 0.12);
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 35px rgba(255, 40, 40, 0.4);
+    }
+
+    .service-name {
+      color: var(--accent2);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    /* GALLERY */
+    .gallery-img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+      transition: .3s;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 50, 50, 0.4);
+    }
+
+    .gallery-caption {
+      color: var(--accent2);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .gallery-expl {
+      color: #ffcccc;
+      font-size: .9rem;
+    }
+
+    /* CONTACT */
+    #contact .info-box {
+      background: var(--card);
+      border-radius: 15px;
+      padding: 20px;
+      border: 1px solid rgba(255, 0, 0, 0.25);
+    }
+
+    #contact h5 {
+      color: var(--accent2);
+      font-weight: 800;
+    }
+
+    .pro-input {
+      background: #111 !important;
+      border: 1px solid rgba(255, 0, 0, 0.3) !important;
+      color: #fff !important;
+      border-radius: 12px;
+    }
+
+    .pro-input:focus {
+      border-color: var(--accent2);
+      box-shadow: 0 0 15px rgba(255, 50, 50, 0.4);
+    }
+
+    .btn-glow {
+      background: var(--accent2);
+      font-weight: 800;
+      color: #000;
+      border-radius: 10px;
+      width: 160px;
+      box-shadow: 0 0 20px var(--accent2);
+    }
+
+   /* FOOTER */
+footer{
+border-top:1px solid rgba(122,0,255,.2);
+padding:20px 10px;
+text-align:center;
+}
+footer a{color:white;font-size:22px}
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+
+        <a class="navbar-brand" href="#home"><img src="image1\home2.jpg"style="height: 80px;width: 80px"></a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript">
+        $('.js-scroll-trigger').click(function () {
+            $('.navbar-collapse').collapse('hide');
+        });
+    </script>
+  <!-- HOME -->
+  <section id="home">
+    <div class="container">
+      <h1 class="hero-title">Rangrez Uniq Mobile Store</h1>
+      <p class="hero-sub">Latest Mobiles • Genuine Products • Expert Technicians</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+        <h2 class="hero-title text-center" style="font-size:40px;padding-bottom: 80px;margin-top:30px ;">About</h2>
+
+      <div class="row g-4 align-items-center">
+
+        <div class="col-lg-6">
+          <div class="card  img  p-4">
+            <h3 class="pb-2">About Our Store</h3>
+            <p class="text-white">
+              1. Welcome to Rangrez Uniq Mobile Shop—your one-stop destination for the latest mobiles!<br/>
+              2. Discover unbeatable prices, premium brands, and exclusive launch offers.<br/>
+              3. From budget-friendly phones to high-end smartphones, we have it all.<br/>
+              4. Get expert guidance, genuine accessories, and top-quality service.<br/>
+              5. Visit us today and experience the colorful world of technology!<br/>
+              6. Rangrez Uniq Mobile Shop—Where quality meets trust.<br/><br/><br/>
+              We provide premium smartphones & repair services with 100% original parts.<br/>
+              All top brands available: Samsung, Apple, Xiaomi, Vivo, Oppo, realme & more.
+            </p>
+            <p class="text-white"><strong>Address:</strong> Fateh Chowk Asind, Bhilwada</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center">
+          <img src="image1\about.jpg" alt="mobile"style="height: 60vh;width: 70vh"class="img">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="hero-title" style="font-size:40px;padding-top:85px ;">Our Services</h2>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="service-card pe-3 ps-3">
+            <h5 class="service-name text-center"><img src="image1\p1.avif"alt="mobile"style="height: 300px;width: 350px;border-radius: 16px;"class="img"><br/><br/>  Jishan – Technician</h5>
+            <p>Screen Repair • Battery Replace • Water Damage Fix</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="service-card">
+            <h5 class="service-name text-center"> <img src="image1\p2.webp"alt="mobile"style="height: 300px;width: 350px;border-radius: 16px;"class="img"><br/><br/> Asifa – Sales</h5>
+            <p>Product Guidance • Warranty • Exchange Offers</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="service-card">
+            <h5 class="service-name text-center"><img src="image1\p5.webp"alt="mobile"style="height: 300px;width: 350px;border-radius: 16px;"class="img"><br/><br/>Aslam ji – Manager</h5>
+            <p>Inventory • Supplier Handling • Customer Support</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+
+      <div class="text-center mb-4">
+        <h2 class="hero-title" style="font-size:40px;">Gallery</h2>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <img src="image1\mob2.avif" class="gallery-img">
+          <div class="gallery-caption">Samsung A52</div>
+          <div class="gallery-expl">Best midrange device.</div>
+        </div>
+
+        <div class="col-md-4">
+          <img src="image1\mob4.avif" class="gallery-img">
+          <div class="gallery-caption">iPhone 13</div>
+          <div class="gallery-expl">Best performance & camera.</div>
+        </div>
+
+        <div class="col-md-4">
+          <img src="image1\mob5.jpg" class="gallery-img">
+          <div class="gallery-caption">Samsung s24 altra</div>
+          <div class="gallery-expl">Battery champion.</div>
+        </div>
+         <div class="row g-4">
+
+        <div class="col-md-4">
+          <img src="image1\mob7.avif" class="gallery-img">
+          <div class="gallery-caption">Vivo 400pro</div>
+          <div class="gallery-expl">Best midrange device.</div>
+        </div>
+
+        <div class="col-md-4">
+          <img src="image1\mob9.jpg" class="gallery-img">
+          <div class="gallery-caption">Oppo series</div>
+          <div class="gallery-expl">Best performance & camera.</div>
+        </div>
+
+        <div class="col-md-4">
+          <img src="image1\mob10.webp" class="gallery-img">
+          <div class="gallery-caption">Realmee series</div>
+          <div class="gallery-expl">Battery champion.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+        <h2 class="hero-title text-center" style="font-size:40px;padding-top:20px ;padding-bottom: 60px;">Contact us</h2>
+
+      <div class="row g-4">
+
+        <!-- INFO -->
+        <div class="col-lg-5">
+          <div class="info-box p-4">
+            <h5 class="pt-5 ps-2 pb-3">Gets touch</h5>
+            <p><strong>Owner:</strong> Sahid Mohammed</p>
+            <p><strong>Phone:</strong> +91 78784 50927</p>
+            <p><strong>WhatsApp:</strong> +91 78784 50927</p>
+            <p><strong>Address:</strong> Fateh chock Asind, Bhilwara</p>
+                           
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="col-lg-7">
+          <div class="card p-4" style="background: var(--card);">
+            <h5 class="mb-3">Send us a Message</h5>
+            <form>
+
+              <input class="form-control pro-input mb-3" placeholder="Full Name" required>
+              <input class="form-control pro-input mb-3" placeholder="Phone / Email" required>
+              <input class="form-control pro-input mb-3" placeholder="Subject" required>
+
+              <textarea class="form-control pro-input mb-3" rows="4" placeholder="Message" required style="resize: none;"></textarea>
+
+              <button type="button" class="btn btn-glow">Send</button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+    <footer>
+<p>© 2025 Sahib Muhammad — Crafted with ♥</p>
+<a href="https://wa.me/917878450927"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://instagram.com/s_sahib_7"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-twitter"></i></a>
+</footer>
+
+
+
+</body>
+</html>
